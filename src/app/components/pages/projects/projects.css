@@ -1,0 +1,15 @@
+.cursor-dragging {
+  cursor: grabbing !important;
+}
+.anim {
+  transform-origin: right;
+  animation: slide 2s ease-in-out infinite alternate;
+}
+@keyframes slide {
+  from {
+    transform: scaleX(0.3);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

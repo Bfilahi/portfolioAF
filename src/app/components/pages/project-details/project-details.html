@@ -1,0 +1,224 @@
+<div class="pt-[9vh]">
+  <div class="h-[90vh] sm:h-[71vh] relative overflow-hidden">
+    <app-custom-btn 
+    routerLink="/" 
+    class="absolute top-3 left-3 z-10" 
+    [textSize]="'2xl'">
+      back
+    </app-custom-btn>
+
+    <div class="h-full w-full sm:w-[80%] mx-auto bg-(--color-bg-2)" #background>
+      <img
+        loading="lazy"
+        src="/works/{{ project()?.thumbnail }}"
+        alt="{{ project()?.name }}"
+        class="h-full w-full object-cover opacity-10"
+      />
+    </div>
+
+    <div class="absolute w-[90%] sm:w-auto top-1/2 left-1/2 -translate-1/2 flex flex-col gap-7 pt-4 sm:pt-0">
+      <div class="overflow-hidden">
+        <h1 class="uppercase font-bold text-5xl font-changa text-center sm:text-left" #anim>{{ project()?.name }}</h1>
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <div class="overflow-hidden">
+          <small class="block uppercase font-bold" #anim>about</small>
+          <p class="text-(--color-gray-2)" #anim>{{ project()?.about }}</p>
+        </div>
+        <div class="overflow-hidden">
+          <small class="block uppercase font-bold" #anim>year</small>
+          <p class="text-(--color-gray-2)" #anim>{{ project()?.year }}</p>
+        </div>
+        <div class="overflow-hidden">
+          <small class="block uppercase font-bold" #anim>stack</small>
+          <p class="text-(--color-gray-2) capitalize" #anim>{{ project()?.tags?.join(', ') }}</p>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-around flex-wrap sm:justify-normal gap-2 sm:gap-4 overflow-hidden">
+        <a
+          href="{{ project()?.demoUrl }}"
+          target="_blank"
+          #anim
+          class="flex items-center gap-3 w-fit border border-(--color-lime) text-(--color-lime) px-2 py-1 rounded-sm"
+          (mouseenter)="cursorService.setHover(true)"
+          (mouseleave)="cursorService.setHover(false)"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="17px" height="17px">
+            <path
+              d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"
+              fill="var(--color-lime)"
+            ></path>
+          </svg>
+          <small class="capitalize">view demo</small>
+        </a>
+
+        <a
+          href="{{ project()?.codeUrl }}"
+          target="_blank"
+          #anim
+          class="flex items-center gap-3 w-fit border border-(--color-lime) text-(--color-lime) px-2 py-1 rounded-sm"
+          (mouseenter)="cursorService.setHover(true)"
+          (mouseleave)="cursorService.setHover(false)"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="17px" height="17px">
+            <path
+              d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"
+              fill="var(--color-lime)"
+            ></path>
+          </svg>
+          <small class="capitalize">view code</small>
+        </a>
+
+        <a
+          href="{{ project()?.docsUrl }}"
+          target="_blank"
+          #anim
+          [class.hidden]="!project()?.docsUrl"
+          class="flex items-center gap-3 w-fit border border-(--color-lime) text-(--color-lime) px-2 py-1 rounded-sm"
+          (mouseenter)="cursorService.setHover(true)"
+          (mouseleave)="cursorService.setHover(false)"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="17px" height="17px">
+            <path
+              d="M15,7H20.5L15,1.5V7M8,0H16L22,6V18A2,2 0 0,1 20,20H8C6.89,20 6,19.1 6,18V2A2,2 0 0,1 8,0M4,4V22H20V24H4A2,2 0 0,1 2,22V4H4Z"
+              fill="var(--color-lime)"
+            />
+          </svg>
+          <small class="capitalize">API docs</small>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="mt-7 mx-2 sm:mx-0 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-16 overflow-hidden">
+      <div
+        class="border border-(--color-gray) w-70 rounded-sm"
+        #anim
+        [class.hidden]="!project()?.admin"
+      >
+        <small class="capitalize bg-(--color-gray) block p-2">admin</small>
+        <div class="flex items-center justify-between p-2">
+          <small>Email:</small>
+          <p class="italic text-xs">{{ project()?.admin?.email }}</p>
+          <button class="w-5 h-5 cursor-pointer" 
+          (mouseenter)="cursorService.setHover(true)"
+          (mouseleave)="cursorService.setHover(false)" 
+          (click)="copy(project()?.admin?.email || '')">
+            @if (copiedData() === project()?.admin?.email) {
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  fill="var(--color-lime)"
+                  d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                />
+              </svg>
+            } @else {
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  fill="white"
+                  d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"
+                />
+              </svg>
+            }
+          </button>
+        </div>
+        <div class="flex items-center justify-between p-2">
+          <small>Password:</small>
+          <p class="italic text-xs">{{ project()?.admin?.password }}</p>
+          <button class="w-5 h-5 cursor-pointer" 
+          (mouseenter)="cursorService.setHover(true)"
+          (mouseleave)="cursorService.setHover(false)" 
+          (click)="copy(project()?.admin?.password || '')">
+            @if (copiedData() === project()?.admin?.password) {
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  fill="var(--color-lime)"
+                  d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                />
+              </svg>
+            } @else {
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  fill="white"
+                  d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"
+                />
+              </svg>
+            }
+          </button>
+        </div>
+      </div>
+
+      @if (project()?.user) {
+        <div class="border border-(--color-gray) w-70 rounded-sm" #anim>
+          <small class="capitalize bg-(--color-gray) block p-2">user</small>
+          <div class="flex items-center justify-between p-2">
+            <small>Email:</small>
+            <p class="italic text-xs">{{ project()?.user?.email }}</p>
+            <button class="w-5 h-5 cursor-pointer"
+            (mouseenter)="cursorService.setHover(true)"
+            (mouseleave)="cursorService.setHover(false)" 
+            (click)="copy(project()?.user?.email || '')">
+              @if (copiedData() === project()?.user?.email) {
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    fill="var(--color-lime)"
+                    d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                  />
+                </svg>
+              } @else {
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    fill="white"
+                    d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"
+                  />
+                </svg>
+              }
+            </button>
+          </div>
+          <div class="flex items-center justify-between p-2">
+            <small>Password:</small>
+            <p class="italic text-xs">{{ project()?.user?.password }}</p>
+            <button class="w-5 h-5 cursor-pointer"
+            (mouseenter)="cursorService.setHover(true)"
+            (mouseleave)="cursorService.setHover(false)" 
+            (click)="copy(project()?.user?.password || '')">
+              @if (copiedData() === project()?.user?.password) {
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    fill="var(--color-lime)"
+                    d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                  />
+                </svg>
+              } @else {
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    fill="white"
+                    d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"
+                  />
+                </svg>
+              }
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="flex flex-col items-center gap-15 my-15 px-4 sm:px-0">
+      @for (img of project()?.images; track $index) {
+        <img loading="lazy" src="works/{{ img }}" alt="preview" class="w-full sm:w-[80%] rounded-sm" />
+      }
+    </div>
+  </div>
+
+  <footer class="flex flex-col items-center gap-5 py-10 px-4">
+    <small class="uppercase font-semibold">next project</small>
+    <app-custom-btn 
+    routerLink="/project/{{ nextProject()?.id }}"
+    [textSize]="isSmall() ? '5xl' : '7xl'"
+    [fontFamily]="true">
+      {{ nextProject()?.name }}
+    </app-custom-btn>
+  </footer>
+</div>

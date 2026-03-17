@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+:root{
+    --color-bg: #0a0a0a;
+    --color-bg-2: #0b0b0b;
+    --color-lime: #c8f53a;
+    --color-lime-2: #607d00;
+    --color-whitish: #f0ece3;
+    --color-gray: #2e2e2e;
+    --color-gray-2: #F0ECDF73;
+    --color-border: #51515158;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+}
+
+*{
+    font-family: "Titillium Web", sans-serif;
+}
+
+.font-changa{
+    font-family: "Changa One", sans-serif;
+}
