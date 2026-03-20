@@ -1,5 +1,5 @@
 <div class="pt-[9vh]">
-  <div class="h-[31vh] max-h-100 flex flex-col items-start gap-5 sm:gap-10 sm:flex-row sm:items-end p-4 sm:p-7">
+  <div class="sm:h-[31vh] max-h-full flex flex-col items-start gap-5 sm:gap-10 sm:flex-row sm:items-end p-4 sm:p-7">
     <h1 class="uppercase font-bold text-7xl leading-15">
       <span class="inline-block overflow-hidden">
         <span class="anim__elem inline-block font-changa">selected</span>
@@ -10,7 +10,7 @@
       </span>
     </h1>
     <div class="overflow-hidden">
-      <small class="italic text-(--color-gray) anim__elem inline-block">2025—2026 / 04 projects</small>
+      <small class="italic text-(--color-gray) anim__elem inline-block leading-4">2025—2026 / 04 projects</small>
     </div>
   </div>
 
@@ -18,7 +18,7 @@
     <div class="pb-10 px-4 sm:px-auto grid grid-cols-1 sm:grid-cols-2 gap-7">
         @for (project of projectService.projects(); track project.id) {
           <div
-            class="w-full h-70 group card relative overflow-hidden"
+            class="w-full h-70 card relative overflow-hidden"
           >
             <a
               routerLink="/project/{{ project.id }}"
@@ -26,12 +26,12 @@
               style="cursor: inherit"
             >
               <img
-                class="w-full h-full object-cover rounded-sm select-none saturate-0 group-hover:saturate-100 transition-saturate duration-300"
+                class="w-full h-full object-cover rounded-sm select-none"
                 src="works/{{ project.thumbnail }}"
                 alt="{{ project.name }}"
               />
               <div
-                class="absolute left-1 -bottom-100 group-hover:bottom-1 transition-bottom duration-400 ease-in-out"
+                class="absolute left-1 bottom-1"
               >
                 <small class="text-(--color-lime) italic">
                   0{{ project.id }} / 0{{ projectService.projects().length }} — {{ project.year }}

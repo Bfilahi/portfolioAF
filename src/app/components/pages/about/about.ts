@@ -44,11 +44,11 @@ import { Reveal } from '../../../services/reveal';
           <div class="overflow-hidden">
             <div
               #anim
-              class="p-2 flex items-center gap-4 group border border-(--color-gray) translate-y-75 min-w-60 hover:border-(--color-lime) transition-border duration-300 ease-in"
+              class="p-2 flex items-center gap-4 group border border-(--color-gray) translate-y-75 min-w-60 sm:hover:border-(--color-lime) sm:transition-border duration-300 ease-in"
             >
               <app-icon
                 [name]="icon"
-                class="saturate-0 group-hover:saturate-100 transition-saturate duration-300 ease-in"
+                class="sm:saturate-0 sm:group-hover:saturate-100 sm:transition-saturate sm:duration-300 sm:ease-in"
               />
               <h4 class="font-semibold">{{ icon.substring(0, icon.indexOf('.')) | titlecase }}</h4>
             </div>
