@@ -30,12 +30,12 @@ import { Reveal } from '../../../services/reveal';
           (mouseenter)="cursorService.setHover(true)"
           (mouseleave)="cursorService.setHover(false)"
         >
-          <span #anim class="block">abdelbasset.filahi@gmail.com</span>
+          <span #anim class="block">{{ socials.email }}</span>
         </a>
       </div>
 
       <div class="flex items-center gap-10 overflow-hidden">
-        @for (item of socials; track $index) {
+        @for (item of socials.socials; track $index) {
           <a
             href="{{ item.link }}"
             target="_blank"
@@ -56,20 +56,23 @@ export class Contact implements AfterViewInit {
   public readonly cursorService = inject(CursorService);
   private readonly revealService = inject(Reveal);
 
-  public socials: { social: string; link: string }[] = [
-    {
-      social: 'github',
-      link: 'https://github.com/Bfilahi?tab=repositories',
-    },
-    {
-      social: 'linkedin',
-      link: 'https://www.linkedin.com/in/abdelbassete-filahi-4041463aa/',
-    },
-    {
-      social: 'instagram',
-      link: 'https://www.instagram.com/f.basset/',
-    },
-  ];
+  public socials: { email: string, socials: { social: string, link: string }[] } = {
+    email: 'abdelbassete.filahi@gmail.com',
+    socials: [
+      {
+        social: 'github',
+        link: 'https://github.com/Bfilahi?tab=repositories',
+      },
+      {
+        social: 'linkedin',
+        link: 'https://www.linkedin.com/in/abdelbassete-filahi-4041463aa/',
+      },
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/f.basset/',
+      }
+    ],
+  };
 
   ngAfterViewInit(): void {
     const animElements = this.anim.map((item) => item.nativeElement);
